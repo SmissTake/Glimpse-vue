@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+<van-tabs v-model:active="activeName" swipeable>
+  <van-tab title="tab 1" icon="home-o" name="a">
+    <template #title> <van-icon name="star"/>Tab 1 </template>
+    content of tab 1
+  </van-tab>
+  <van-tab title="tab 2" name="b">
+    <template #title><van-icon name="heart-o"/>Tab 2</template>
+    content of tab 2</van-tab>
+  <van-tab title="tab 3" name="c">
+    <template #title><van-icon name="send-gift-o" /> Tab 3</template>
+    content of tab 3</van-tab>
+</van-tabs>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { ref } from 'vue';
 
-@Options({
-  components: {
-    HelloWorld,
+export default {
+  setup() {
+    const activeName = ref('a');
+    return { activeName };
   },
-})
-export default class HomeView extends Vue {}
+}
+
 </script>
