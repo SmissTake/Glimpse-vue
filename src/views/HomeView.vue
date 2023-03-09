@@ -1,4 +1,5 @@
 <template>
+  <SearchBar></SearchBar>
 <van-tabs v-model:active="activeName" swipeable>
   <van-tab title="tab 1" icon="home-o" name="a">
     <template #title> <van-icon name="star"/>Tab 1 </template>
@@ -15,11 +16,15 @@
 
 <script lang="ts">
 import { ref } from 'vue';
+import SearchBar from '@/components/SearchBar.vue';
 
 export default {
   setup() {
     const activeName = ref('a');
     return { activeName };
+  },
+  components: {
+    SearchBar,
   },
 }
 
